@@ -1,0 +1,60 @@
+import java.util.*;
+abstract class Shape 
+{
+    protected double radius, height, area, volume;
+    abstract void getdata();
+    void displayResults() 
+    {
+        System.out.println("The area is: " + area);
+        System.out.println("The volume is: " + volume);
+    }
+}
+class Sphere extends Shape 
+{
+    void getdata() 
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the radius for sphere: ");
+        radius = s.nextDouble();
+        area = 4 * Math.PI * Math.pow(radius, 2);
+        volume = (4.0 / 3.0) * Math.PI * Math.pow(radius, 3);
+    }
+}
+class Cone extends Shape 
+{
+    void getdata() 
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the radius for cone: ");
+        radius = s.nextDouble();
+        System.out.print("Enter the height for cone: ");
+        height = s.nextDouble();
+        area = Math.PI * radius * (radius + Math.sqrt(radius * radius + height * height));
+        volume = (1.0 / 3.0) * Math.PI * Math.pow(radius, 2) * height;
+    }
+}
+class Cylinder extends Shape 
+{
+    void getdata() 
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the radius for cylinder: ");
+        radius = s.nextDouble();
+        System.out.print("Enter the height for cylinder: ");
+        height = s.nextDouble();
+        area = 2 * Math.PI * radius * (radius + height);
+        volume = Math.PI * Math.pow(radius, 2) * height;
+    }
+    public static void main(String  args[]) 
+    {
+        Sphere sphere = new Sphere();
+        sphere.getdata();
+        sphere.displayResults();
+        Cone cone = new Cone();
+        cone.getdata();
+        cone.displayResults();
+        Cylinder cylinder = new Cylinder();
+        cylinder.getdata();
+        cylinder.displayResults();
+    }
+}
