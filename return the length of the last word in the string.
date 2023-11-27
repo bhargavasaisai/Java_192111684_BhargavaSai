@@ -1,0 +1,22 @@
+import java.util.*;
+class LengthofLastWord 
+{
+    public static void main(String args[]) 
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter a string:");
+        String inputString = s.nextLine();
+        int lastSpaceIndex = inputString.lastIndexOf(' ');
+        int lastWordLength;
+        if (lastSpaceIndex ==-1) 
+        {
+            lastWordLength = inputString.length();
+        } 
+        else 
+        {
+            lastWordLength = inputString.substring(lastSpaceIndex + 1).trim().length();
+        }
+        System.out.println("Length of the last word: " + lastWordLength);
+        s.close();
+    }
+}
