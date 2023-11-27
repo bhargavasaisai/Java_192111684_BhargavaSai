@@ -1,0 +1,33 @@
+import java.util.*;
+class SquareOfArray
+{
+    public static void main(String args[])
+    {
+        Scanner s=new Scanner(System.in);
+        int x,y;
+        System.out.print("Enter the starting limit :");
+        x=s.nextInt();
+        System.out.print("Enter the ending limit :");
+        y=s.nextInt();
+        if(x>y)
+        {
+            System.out.print("Please enter a valid limit.");
+            s.close();
+            return;
+        }
+        int size=y-x+1;
+        int array[][]=new int[size][2];
+        for(int i=0;i<size;i++)
+        {
+            int currentNUmber=x+i;
+            array[i][0]=currentNUmber;
+            array[i][1]=currentNUmber*currentNUmber;
+        }
+        System.out.print("The required array is :");
+        for(int i=0;i<size;i++)
+        {
+            System.out.print("Element"+ (i + 1) + ": [" + array[i][0] + ", " + array[i][1] + "]");
+        }
+        s.close();
+    }
+}
