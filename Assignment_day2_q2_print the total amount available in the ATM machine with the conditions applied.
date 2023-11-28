@@ -1,0 +1,23 @@
+import java.util.*;
+ class ATM 
+{
+    public static void main(String args[]) 
+    {
+        Scanner s= new Scanner(System.in);
+        System.out.print("Enter the number of denominations: ");
+        int numberOfDenominations = s.nextInt();
+        int[] denominations = new int[numberOfDenominations];
+        int[] notes = new int[numberOfDenominations];
+        int totalAmount = 0;
+        for (int i = 0; i < numberOfDenominations; i++) 
+        {
+            System.out.print("Enter the Denomination " + (i + 1) + ": ");
+            denominations[i] = s.nextInt();
+            System.out.print("Enter the Denomination " + (i + 1) + " number of notes: ");
+            notes[i] = s.nextInt();
+            totalAmount += denominations[i] * notes[i];
+        }
+        s.close();
+        System.out.println("Total Available Balance in ATM: " + totalAmount);
+    }
+}
